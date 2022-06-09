@@ -6,6 +6,7 @@
         <thead>
           <tr>
             <th scope="col">Titolo</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Contenuto</th>
             <th scope="col">Immagine</th>
             <th scope="col">Slug</th>
@@ -16,6 +17,7 @@
             @foreach ($posts as $post)
             <tr>
                 <td class="align-middle">{{$post->title}}</td>
+                <td class="align-middle">@if ($post->category)<span class="badge badge-pill badge-{{$post->Category->color}} ">{{$post->Category->name}}@else - @endif</span></td>
                 <td class="align-middle">{{$post->content}}</td>
                 <td class="align-middle"><img class="img-fluid" src="{{$post->image}}" alt=""></td>
                 <td class="align-middle">{{$post->slug}}</td>

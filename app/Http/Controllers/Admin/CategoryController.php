@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Post;
-use App\Models\Category;
-use Illuminate\Support\Str;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts= Post::all();
-        return view('admin.index', compact('posts'));
+        //
     }
 
     /**
@@ -28,8 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view('admin.create', compact('categories'));
+        //
     }
 
     /**
@@ -40,12 +35,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        $post=new Post();
-        $post->fill($data);
-        $post->slug =Str::slug($post->title, '-');
-        $post->save();
-        return redirect()->route('admin.posts.show',$post);
+        //
     }
 
     /**
@@ -54,10 +44,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        // $categories=Category::all();
-        return view('admin.show',compact('post'));
+        //
     }
 
     /**
@@ -66,10 +55,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        $categories=Category::all();
-        return view('admin.edit',compact('post'), compact('categories'));
+        //
     }
 
     /**
@@ -79,13 +67,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post )
+    public function update(Request $request, $id)
     {
-        $data=$request->all();
-        $post->fill($data);
-        $post->slug =Str::slug($post->title, '-');
-        $post->save();
-        return redirect()->route('admin.posts.show',$post);
+        //
     }
 
     /**
@@ -94,9 +78,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        $post->delete();
-        return redirect()->route('admin.posts.index', $post);
+        //
     }
 }
