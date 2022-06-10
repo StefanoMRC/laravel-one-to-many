@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Str;
 
+
 class PostController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts= Post::all();
+        $posts= Post::paginate(5);
         return view('admin.index', compact('posts'));
     }
 

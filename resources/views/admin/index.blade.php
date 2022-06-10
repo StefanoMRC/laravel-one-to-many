@@ -33,10 +33,12 @@
               
                 
               </tr>
-            @endforeach
-    
+           @endforeach
         </tbody>
       </table>
+      @if ($posts->hasPages())
+          {{$posts->links()}}
+      @endif
 </div>
 
 @endsection
